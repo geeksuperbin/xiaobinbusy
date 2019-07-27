@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>程序开发常用文档及资料</title>
+    <!-- 引入 ElementUi 样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.9.1/lib/theme-chalk/index.css">
+</head>
+<body>
+<!--粘贴区-->
+<div id="app" v-cloak>
+
+    <el-row :gutter="20" v-cloak>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="搜索工具" name="searchTool">
+                <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="item in items">
+                    <el-card shadow="hover">
+                        <div  class='word'>
+                            <span  style="margin-right:10px" :title="item.name"  v-cloak>{{item.name}}</span>
+                        </div>
+                        <el-link icon="el-icon-view" type="primary" :href="item.url" target="_blank" style="float:right">查阅</el-link>
+                        <el-rate v-model="item.value"></el-rate>
+                    </el-card>
+                </el-col>
+            </el-tab-pane>
+
+            <el-tab-pane label="前端文档" name="frontDoc">
+                <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="item in items">
+                    <el-card shadow="hover">
+                        <div  class='word'>
+                            <span  style="margin-right:10px" :title="item.name"  v-cloak>{{item.name}}</span>
+                        </div>
+                        <el-link icon="el-icon-view" type="primary" :href="item.url" target="_blank" style="float:right">查阅</el-link>
+                        <el-rate v-model="item.value"></el-rate>
+                    </el-card>
+                </el-col>
+            </el-tab-pane>
+            <el-tab-pane label="后端文档" name="backDoc">
+                <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="item in items">
+                    <el-card shadow="hover">
+                        <div  class='word'>
+                            <span  style="margin-right:10px" :title="item.name"  v-cloak>{{item.name}}</span>
+                        </div>
+                        <el-link icon="el-icon-view" type="primary" :href="item.url" target="_blank" style="float:right">查阅</el-link>
+                        <el-rate v-model="item.value"></el-rate>
+                    </el-card>
+                </el-col>
+            </el-tab-pane>
+            <el-tab-pane label="效率工具" name="upTool">
+                <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="item in items">
+                    <el-card shadow="hover">
+                        <div  class='word'>
+                            <span  style="margin-right:10px" :title="item.name"  v-cloak>{{item.name}}</span>
+                        </div>
+                        <el-link icon="el-icon-view" type="primary" :href="item.url" target="_blank" style="float:right">查阅</el-link>
+                        <el-rate v-model="item.value"></el-rate>
+                    </el-card>
+                </el-col>
+            </el-tab-pane>
+            <el-tab-pane label="办公工具" name="workTool">
+                <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="item in items">
+                    <el-card shadow="hover">
+                        <div  class='word'>
+                            <span  style="margin-right:10px" :title="item.name"  v-cloak>{{item.name}}</span>
+                        </div>
+                        <el-link icon="el-icon-view" type="primary" :href="item.url" target="_blank" style="float:right">查阅</el-link>
+                        <el-rate v-model="item.value"></el-rate>
+                    </el-card>
+                </el-col>
+            </el-tab-pane>
+            <el-tab-pane label="设计" name="uI">
+                <el-col :xs="24" :sm="12" :md="8" :lg="6" v-for="item in items">
+                    <el-card shadow="hover">
+                        <div  class='word'>
+                            <span  style="margin-right:10px" :title="item.name"  v-cloak>{{item.name}}</span>
+                        </div>
+                        <el-link icon="el-icon-view" type="primary" :href="item.url" target="_blank" style="float:right">查阅</el-link>
+                        <el-rate v-model="item.value"></el-rate>
+                    </el-card>
+                </el-col>
+            </el-tab-pane>
+
+
+        </el-tabs>
+        <!---->
+    </el-row>
+
+</div>
+
+
+<!--粘贴区-->
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入 ElementUi 组件库-->
+<script src="https://unpkg.com/element-ui@2.9.1/lib/index.js"></script>
+<script>
+
+
+    /*粘贴区*/
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                activeName: 'backDoc',
+                items:'',
+                develops:{
+                    frontDoc:[
+                        {name:'ElementUI 2.9 文档',url:'https://element.eleme.cn/#/zh-CN/component/installation',value:5},
+                        {name:'Vue 2.x 文档',url:'https://cn.vuejs.org/v2/guide/',value:5},
+                       
+
+                    ],
+                    backDoc:[
+                        {name:'Laravel 5.4 文档',url:'https://learnku.com/docs/laravel/5.4',value:5},
+                        {name:'PHP 5.6 文档',url:'https://www.php.net/manual/zh/index.php',value:5},
+                        
+
+
+                    ],
+                    upTool:[
+                        
+                        {name:'Json 在线验证工具',url:'http://www.bejson.com/',value:1},
+                        
+                    ],
+                    workTool:[
+
+                        {name:'公司Mail',url:'https://www.xxx/',value:3},
+ 
+                        
+                    ],
+                    searchTool:[
+                        {name:'百度',url:'https://www.baidu.com/',value:2},
+                    ],
+                    uI:[
+                        {name:'包图网',url:'https://ibaotu.com/',value:5},
+                    ]
+
+                }
+
+            };
+        },
+        methods: {
+            handleClick(tab, event) {
+                if(tab.name == 'workTool'){
+                    this.items = this.develops.workTool
+                }
+
+                if(tab.name == 'searchTool'){
+                    this.items = this.develops.searchTool
+                }
+
+                if(tab.name == 'frontDoc'){
+                    this.items = this.develops.frontDoc
+                }
+                if(tab.name == 'backDoc'){
+                    this.items = this.develops.backDoc
+                }
+                if(tab.name == 'upTool'){
+                    this.items = this.develops.upTool
+                }
+                if(tab.name == 'uI'){
+                    this.items = this.develops.uI
+                }
+            }
+
+        },
+
+        mounted() {
+            // 初始化加时，加载第一个选项卡里的内容
+            this.items = this.develops.backDoc
+        }
+
+
+
+
+    })
+
+
+    /*粘贴区*/
+
+
+</script>
+
+
+<style>
+
+
+    /*粘贴区*/
+    .el-card{
+        margin-bottom: 20px;
+    }
+    
+
+    .word{
+        overflow: hidden; /*自动隐藏文字*/
+        text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+        white-space: nowrap;/*强制不换行*/
+    }
+
+    [v-cloak] {
+        display: none !important;
+    }
+
+
+    /*粘贴区*/
+</style>
+</html>
+
